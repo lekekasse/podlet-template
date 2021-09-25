@@ -28,7 +28,7 @@ jobs:
             --set-env-vars NODE_ENV="production"
       - name: Set authentication
         run: |
-          gcloud alpha functions add-iam-policy-binding podlet-hello \ 
+          gcloud functions add-iam-policy-binding podlet-hello \ 
             --region=us-central1 \
             --member=allUsers \
             --role=roles/cloudfunctions.invoker
