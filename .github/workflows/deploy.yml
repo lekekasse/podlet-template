@@ -29,5 +29,5 @@ jobs:
       - name: Set authentication
         run: |
           gcloud functions add-iam-policy-binding podlet-hello \
-	    --member="allUsers" \
-	    --role="roles/cloudfunctions.invoker"
+            --member="allUsers" \
+            --role="roles/cloudfunctions.invoker"
