@@ -22,6 +22,7 @@ jobs:
         run: |
           gcloud functions deploy podlet-hello \
             --runtime nodejs16 \
+            --memory="128" \
             --region="europe-west3" \
             --allow-unauthenticated \
             --trigger-http \
