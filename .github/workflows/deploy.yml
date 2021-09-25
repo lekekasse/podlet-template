@@ -26,7 +26,6 @@ jobs:
             --region="europe-west3" \
             --allow-unauthenticated \
             --trigger-http \
-            --entry-point helloWorld \
             --set-env-vars NODE_ENV="production"
       - name: Set authentication
         run: |
