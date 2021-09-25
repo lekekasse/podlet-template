@@ -23,8 +23,11 @@ jobs:
           gcloud functions deploy podlet-hello \
             --runtime nodejs16 \
             --allow-unauthenticated \
-            --member="allUsers" \
-            --role="roles/cloudfunctions.invoker" \
             --trigger-http \
             --entry-point helloWorld \
             --set-env-vars NODE_ENV="production"
+      - name: Set authentication
+        run: |
+          gcloud functions add-iam-policy-binding podlet-hello \
+	    --member="allUsers" \
+	    --role="roles/cloudfunctions.invoker"
