@@ -1,12 +1,12 @@
 import express from 'express';
 
-const podlet = express();
+const app = express();
 
-podlet.get('/content', (req, res, next) => {
+app.get('/content', (req, res, next) => {
   res.send(`Hello content!`);
 });
 
-export const podlet;
+export { app as podlet };
 
 /*
 export function podlet(req, res) {
