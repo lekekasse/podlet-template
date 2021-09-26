@@ -1,4 +1,4 @@
-import podlet from '@podium/podlet';
+import Podlet from '@podium/podlet';
 import express from 'express';
 
 const app = express();
