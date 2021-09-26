@@ -1,13 +1,15 @@
 import Podlet from '@podium/podlet';
 import express from 'express';
 
+import config from '../config/index.js';
+
 const app = express();
 
 const podlet = new Podlet({
-  name: 'myPodlet',
-  version: '1.0.0',
+  name: config.get('name'),
+  version: config.get('version'),
   pathname: '/',
-  development: true,
+  development: config.get('development'),
 });
 
 app.use(podlet.middleware());
