@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lekekasse/podlet-template/issues"
   },
-  "homepage": "https://github.com/lekekasse/podlet-template#readme"
+  "homepage": "https://github.com/lekekasse/podlet-template#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
