@@ -26,8 +26,8 @@ jobs:
             --region="europe-west3" \
             --allow-unauthenticated \
             --trigger-http \
-            --entry-point podletFn \ 
-            --set-env-vars NODE_ENV="prod",VERSION="${{ github.sha }}",NAME="${{ github.event.repository.name }}"
+            --entry-point podletFn \
+            --set-env-vars NODE_ENV="production",VERSION="${{ github.sha }}",NAME="${{ github.event.repository.name }}"
       - name: Set authentication
         run: |
           gcloud functions add-iam-policy-binding ${{ github.event.repository.name }} \

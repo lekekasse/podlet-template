@@ -27,7 +27,7 @@ const conf = convict({
         env: 'VERSION',
     },
     env: {
-        format: ['local', 'dev', 'prod'],
+        format: ['local', 'dev', 'production'],
         default: 'local',
         env: 'NODE_ENV',
     },
