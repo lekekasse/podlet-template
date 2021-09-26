@@ -30,7 +30,7 @@ app.get('/content', (req, res, next) => {
 });
 */
 
-export { app as podlet };
+export { app as podletFn };
 
 /*
 export function podlet(req, res) {
