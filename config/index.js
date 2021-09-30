@@ -43,7 +43,7 @@ const conf = convict({
     },
     port: {
         format: 'port',
-        doc: 'The server port',
+        doc: 'The server port used when developing locally',
         default: 8080,
         env: 'PORT',
         arg: 'port',

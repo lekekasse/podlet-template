@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy main branch to GCF
 on:
   push:
     branches:
@@ -7,20 +7,19 @@ on:
 
 jobs:
   deploy:
-    name: deploy-gcf
+    name: deploy-main-gcf
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:
-          # probot/example-google-cloud-function credentials provided by @bcoe
           project_id: ${{ secrets.PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
           export_default_credentials: true
-      - name: Deploy to GCF
+      - name: Deploy main to GCF
         run: |
-          gcloud functions deploy ${{ github.event.repository.name }} \
+          gcloud functions deploy ${{ github.event.repository.name }}-main \
             --runtime nodejs16 \
             --memory="128" \
             --region="europe-west3" \
@@ -30,7 +29,7 @@ jobs:
             --set-env-vars NODE_ENV="production",VERSION="${{ github.sha }}",NAME="${{ github.event.repository.name }}"
       - name: Set authentication
         run: |
-          gcloud functions add-iam-policy-binding ${{ github.event.repository.name }} \
+          gcloud functions add-iam-policy-binding ${{ github.event.repository.name }}-main \
             --region="europe-west3" \
             --member="allUsers" \
             --role="roles/cloudfunctions.invoker"
