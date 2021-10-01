@@ -1,0 +1,23 @@
+name: Remove beta branch to GCF
+on:
+  delete:
+    branches:
+      - beta
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    name: remove-beta-gcf
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          export_default_credentials: true
+      - name: Remove beta from GCF
+        run: |
+          gcloud functions delete ${{ github.event.repository.name }}-beta \
+            --region="europe-west3" 
