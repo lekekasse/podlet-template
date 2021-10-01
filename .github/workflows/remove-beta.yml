@@ -1,4 +1,4 @@
-name: Remove beta branch to GCF
+name: Remove beta branch from GCF
 on:
   delete:
     branches:
